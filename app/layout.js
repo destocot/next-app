@@ -5,9 +5,7 @@ const RootLayout = ({ children }) => {
     <html lang="en">
       <body>
         <Link href="/">Home</Link>
-        <Link href="/about">About</Link>
         {children}
-        <footer>Khurram Ali was here</footer>
       </body>
     </html>
   )
