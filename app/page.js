@@ -1,27 +1,10 @@
 import fs from 'node:fs'
 import matter from 'gray-matter'
-import Link from 'next/link'
+import ProductList from '../components/ProductList'
 
 const HomePage = async () => {
   const products = await getProducts()
-
-  return products.map((product) => {
-    return (
-      <div key={product.name}>
-        <Link href={product.slug}>
-          <h1>{product.name}</h1>
-        </Link>
-        <p>{product.description}</p>
-        <p>${product.price / 100}</p>
-      </div>
-    )
-  })
-
-  return (
-    <div>
-      <h1>Welcome to our custom Next.js app!</h1>
-    </div>
-  )
+  return <ProductList products={products} />
 }
 
 const getProducts = () => {

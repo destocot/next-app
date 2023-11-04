@@ -1,17 +1,21 @@
 import matter from 'gray-matter'
 import fs from 'node:fs'
 import { marked } from 'marked'
+import { Price, SubTitle, Title } from '../../styled/Product.styled'
+import Page from '../../styled/Page.styled'
 
 const Product = async ({ params }) => {
   const { data, content } = await getProductInfo(params.product)
   const html = marked(content)
   return (
-    <div>
-      <h1>{data.name}</h1>
-      <p>{data.description}</p>
-      <p>${data.price / 100}</p>
+    <Page>
+      <Title>
+        <h1>{data.name}</h1>
+        <SubTitle>{data.description}</SubTitle>
+      </Title>
+      <Price>${data.price / 100}</Price>
       <div dangerouslySetInnerHTML={{ __html: html }} />
-    </div>
+    </Page>
   )
 }
 
