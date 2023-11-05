@@ -1,3 +1,6 @@
 .next
 node_modules
 .prettierrc
+# Local Netlify folder
+.netlify
+.env
